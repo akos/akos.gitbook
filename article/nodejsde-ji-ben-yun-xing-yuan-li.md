@@ -38,25 +38,14 @@
     
 需要关注的几个目录和文件：
 
-==/deps/v8==：这里是V8源码所在文件夹，你会发现里面的目录结构跟V8源码十分相似。NodeJS除了移植V8源码，还在增添了一些内容。
+/deps/v8：这里是V8源码所在文件夹，你会发现里面的目录结构跟V8源码十分相似。NodeJS除了移植V8源码，还在增添了一些内容。
 
-==/src==：由C/C++编写的核心模块所在文件夹，由C/C++编写的这部分模块被称为「Builtin Module」
+/src：由C/C++编写的核心模块所在文件夹，由C/C++编写的这部分模块被称为「Builtin Module」
 
-==/lib==：由JavaScript编写的核心模块所在文件夹，这部分被称为「Native Code」，在编译Node源码的时候，会采用V8附带的js2c.py工具，把所有内置的JavaScript代码转换成C++里面的数组，生成out/Release/obj/gen/node_natives.h文件。有些 Native Module 需要借助于 Builtin Module 实现背后的功能。
+/lib：由JavaScript编写的核心模块所在文件夹，这部分被称为「Native Code」，在编译Node源码的时候，会采用V8附带的js2c.py工具，把所有内置的JavaScript代码转换成C++里面的数组，生成out/Release/obj/gen/node_natives.h文件。有些 Native Module 需要借助于 Builtin Module 实现背后的功能。
 
-==/out==：该目录是Node源码编译(即命令行运行make)后生成的目录，里面包含了Node的可执行文件。当在命令行中键入node xxx.js，实际就是运行了out/Release/node文件。
+/out：该目录是Node源码编译(即命令行运行make)后生成的目录，里面包含了Node的可执行文件。当在命令行中键入node xxx.js，实际就是运行了out/Release/node文件。
 
-```
-graph TD
-A[lib/*.js] --> | js2c.py|B(node_native.h)
-B --> |g++ complie| D(Node)
-C[src/*.cc + src/*.h] --> |g++ complie|D
-D --> E(memory)
-F[other Js module] --> J[require调用]
-J--> K(V8 parser)
-K --> E
-
-```
     Node在启动的时候，就已经把 Native Module，Builtin Module 加载到内存里面了，这样可以供全局使用。后来的 JavaScript 代码，就需要通过 V8 进行动态编译解析运行。
     
     V8 作为一个 JavaScript 引擎，最初是服役于 Google Chrome 浏览器的。它随着 Chrome 的第一版发布而发布以及开源。现在它除了 Chrome 浏览器，已经有很多其他的使用者了。诸如 NodeJS、MongoDB、CouchDB 等。
