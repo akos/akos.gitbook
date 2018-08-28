@@ -6,6 +6,6 @@
 * [核心资源](core.md)
 * [最佳实现](bookshelfjs.md)
 * [相关文章](article.md)
-  * [nodeJs的基本运行原理](article/nodejsde-ji-ben-yun-xing-yuan-li.md)
+  * [Node.js的基本运行原理](article/nodejsde-ji-ben-yun-xing-yuan-li.md)
   * [EventLoop](core/evenloop.md)
 
