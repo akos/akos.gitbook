@@ -92,7 +92,7 @@ more用来标识是否进行下一轮循环。 env->event_loop()会返回之前�
 另外我们也可以将自定义的函数抛到线程池中运行，在运行结束后主线程会执行相应的回调函数，不过Node并没有将这一项功能加入到JavaScript中，也就是说只用原生Node是无法在JavaScript中开启新的线程进行并行执行的。
 
 ### process.nextTick
-![](settimeout.jpeg)
+
 带着这个问题，我们看看 JS 层的 nextTick 是怎么被驱动。
 
 在入口点 `src/node.js`, `processNextTick` 方法构建了 `process.nextTick` API。
