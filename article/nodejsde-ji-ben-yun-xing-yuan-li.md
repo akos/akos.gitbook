@@ -45,7 +45,7 @@
 /lib：由JavaScript编写的核心模块所在文件夹，这部分被称为「Native Code」，在编译Node源码的时候，会采用V8附带的js2c.py工具，把所有内置的JavaScript代码转换成C++里面的数组，生成out/Release/obj/gen/node_natives.h文件。有些 Native Module 需要借助于 Builtin Module 实现背后的功能。
 
 /out：该目录是Node源码编译(即命令行运行make)后生成的目录，里面包含了Node的可执行文件。当在命令行中键入node xxx.js，实际就是运行了out/Release/node文件。
-
+![](/assets/popo_2018-08-28  19-59-37.jpg)
     Node在启动的时候，就已经把 Native Module，Builtin Module 加载到内存里面了，这样可以供全局使用。后来的 JavaScript 代码，就需要通过 V8 进行动态编译解析运行。
     
     V8 作为一个 JavaScript 引擎，最初是服役于 Google Chrome 浏览器的。它随着 Chrome 的第一版发布而发布以及开源。现在它除了 Chrome 浏览器，已经有很多其他的使用者了。诸如 NodeJS、MongoDB、CouchDB 等。
