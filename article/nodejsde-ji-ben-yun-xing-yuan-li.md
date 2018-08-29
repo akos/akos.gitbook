@@ -52,14 +52,14 @@
   V8 作为一个 JavaScript 引擎，最初是服役于 Google Chrome 浏览器的。它随着 Chrome 的第一版发布而发布以及开源。现在它除了 Chrome 浏览器，已经有很多其他的使用者了。诸如 NodeJS、MongoDB、CouchDB 等。
     
  JavaScript 作为 Prototype-Based Language , 基于它使用 Prototype 继承的特征，V8 使用了直译的方式，即把 JavaScript 代码直接编译成机器码( Machine Code, 有些地方也叫 Native Code )，然后直接交由硬件执行。
-  与传统的「编译-解析-执行」的流程不同，V8 处理 JavaScript，初期时并没有二进制码或其他的中间码，到2017年上旬引入中间字节码的概念。
+  与传统的「编译-解析-执行」的流程不同，V8 处理 JavaScript，初期时并没有二进制码或其他的中间码，到**2017年上旬引入中间字节码的概念**。
     
   简单来说，V8主要工作就是：「把 JavaScript 直译成机器码，然后运行」
   但这中间，往往是一个复杂的过程，它需要处理很多的难题，诸如：
     
         1.编译优化
         2.内存管理
-        3.垃圾回收~~
+        3.垃圾回收
 
 
 #### C/C++编写的核心模块，调用方法基本运行原理
